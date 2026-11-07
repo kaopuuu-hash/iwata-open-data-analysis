@@ -102,7 +102,7 @@ var voidCells = [[34.685000,137.805000,2],[34.685000,137.815000,2],[34.685000,13
 var voidHeatData = voidCells.map(function(v) {
     return [v[0], v[1], v[2] === 0 ? 1.0 : 0.0];
 });
-var voidHeat = L.heatLayer(voidHeatData, {radius: 45, blur: 25, minOpacity: 0.45, max: 1.0, maxZoom: 17, gradient: {0.0: 'blue', 0.5: 'yellow', 1.0: 'red'}}).addTo(map);
+var voidHeat = L.heatLayer(voidHeatData, {radius: 32, blur: 18, minOpacity: 0.25, max: 1.0, maxZoom: 17, gradient: {0.0: 'blue', 0.5: 'yellow', 1.0: 'red'}}).addTo(map);
 
 // Bus density heatmap
 var busHeatData = busStops.map(function(b) { return [b[0], b[1], 0.5]; });
