@@ -1,0 +1,10 @@
+{
+  "theme": "17. 地域別将来シナリオ",
+  "scenarios": [
+    "Base",
+    "Optimistic",
+    "Pessimistic"
+  ],
+  "projection_period": "2025-2050",
+  "analysis_date": "2026-11-07"
+}

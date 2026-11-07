@@ -1,0 +1,13 @@
+{
+  "theme": "12. 避難・孤立リスク分析",
+  "data_sources": {
+    "shelters": "磐田市 避難所一覧 (LinkData rdf1s3385i, 2017)",
+    "population": "磐田市 町別人口 (LinkData, 2021)"
+  },
+  "total_shelters": 43,
+  "shelters_with_coords": 43,
+  "grid_cells_with_shelters": 34,
+  "grid_cells_without_shelters": 221,
+  "analysis_date": "2026-11-07",
+  "license": "CC BY 3.0"
+}

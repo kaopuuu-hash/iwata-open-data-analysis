@@ -1,0 +1,9 @@
+{
+  "theme": "9. 生活空白地帯分析 (Updated)",
+  "data_source": "国土数値情報 バス停留所データ v3.0 (令和4年度, 2022)",
+  "grid_cells": 255,
+  "void_cells": 116,
+  "total_bus_stops": 401,
+  "analysis_date": "2026-11-07",
+  "previous_version": "v2 (2010): 714 stops, 65 void cells"
+}

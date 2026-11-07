@@ -1,0 +1,14 @@
+﻿Type Code,Label,Count,"Per 10,000 pop"
+D-3,中学校 (Junior High),10,0.59
+D-4,小学校 (Elementary),22,1.30
+D-5,幼稚園 (Kindergarten),17,1.01
+D-7,放課後児童クラブ等 (After-school/Community),41,2.43
+E-1,保育園 (Nursery),8,0.47
+E-2,こども園 (Integrated Childcare),3,0.18
+E-5,子育て支援センター (Childcare Support),9,0.53
+H-1,図書館 (Library),5,0.30
+H-3,観光・文化施設 (Tourism/Culture),5,0.30
+H-4,文化会館・公民館 (Cultural Hall),4,0.24
+H-5,文化財関連 (Cultural Heritage),10,0.59
+N-6,児童遊園 (Playground),1,0.06
+TOTAL,All facilities,135,7.99

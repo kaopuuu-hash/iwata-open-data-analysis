@@ -1,0 +1,12 @@
+{
+  "theme": "2. 人口構造分析 (Updated)",
+  "data_source": "磐田市 地域・年齢別人口 (Shizuoka Open Data, 2022-03-31)",
+  "total_population": 167663,
+  "towns": 327,
+  "under15": 21290,
+  "working": 97843,
+  "elderly": 48530,
+  "aging_rate": 28.9,
+  "analysis_date": "2026-11-07",
+  "previous_version": "2021: 169,013 (aging 28.6%)"
+}

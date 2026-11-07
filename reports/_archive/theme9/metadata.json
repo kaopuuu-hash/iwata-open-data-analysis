@@ -1,0 +1,13 @@
+{
+  "theme": "9. 生活空白地帯分析",
+  "data_sources": {
+    "bus_stops": "国土数値情報 バス停留所データ (平成22年度)",
+    "population": "磐田市 町別人口 (LinkData, 2021)"
+  },
+  "grid_size_degrees": 0.01,
+  "grid_cells": 255,
+  "void_cells": 65,
+  "total_bus_stops": 714,
+  "analysis_date": "2026-11-07",
+  "note": "Analysis based on bus stop density as proxy for transportation access. Medical and commercial data lack coordinates."
+}

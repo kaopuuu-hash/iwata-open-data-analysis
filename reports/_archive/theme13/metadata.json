@@ -1,0 +1,11 @@
+{
+  "theme": "13. 農地・住宅・土地利用分析",
+  "data_source": "令和2年度都市計画基礎調査 (磐田市)",
+  "admin_polygons": 11,
+  "urban_planning_polygons": 2,
+  "urbanization_polygons": 18,
+  "industrial_records": 718,
+  "industrial_employed_records": 524,
+  "analysis_date": "2026-11-07",
+  "note": "Land use data from urban planning basic survey. Detailed land use classification not available in downloaded data."
+}

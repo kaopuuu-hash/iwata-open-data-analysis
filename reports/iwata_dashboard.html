@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>磐田市オープンデータ ダッシュボード v1（静的版）</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root{--bg:#0a1628;--panel:#0f1d32;--card:#162440;--cyan:#00d4ff;--txt:#e2e8f0;--mut:#94a3b8;--line:#1e3a5f;--warn:#f59e0b;--ok:#22c55e;--err:#ef4444}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Yu Gothic',sans-serif;background:var(--bg);color:var(--txt);font-size:13px}
+header{background:var(--panel);border-bottom:1px solid var(--line);padding:10px 16px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+header h1{font-size:15px;color:var(--cyan)}
+header .meta{font-size:11px;color:var(--mut)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;padding:10px 16px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:8px;text-align:center}
+.kpi .v{font-size:18px;font-weight:700;color:var(--cyan)}
+.kpi .l{font-size:10px;color:var(--mut)}
+.main{display:grid;grid-template-columns:1.2fr 1fr;gap:10px;padding:0 16px}
+.mapbox{background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden;min-height:480px}
+.mapbox iframe{width:100%;height:480px;border:0}
+.charts{display:grid;grid-template-rows:auto auto auto;gap:10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:10px}
+.card h3{font-size:12px;color:var(--cyan);margin-bottom:6px}
+.chartbox{height:170px}
+table{width:100%;border-collapse:collapse;font-size:11px}
+th,td{border:1px solid var(--line);padding:4px 6px;text-align:right}
+th:first-child,td:first-child{text-align:left}
+th{background:var(--panel);color:var(--cyan)}
+.quality{display:flex;gap:6px;padding:10px 16px;flex-wrap:wrap}
+.q{flex:1;min-width:140px;text-align:center;padding:6px;border-radius:4px;font-size:11px}
+.q.ok{background:rgba(34,197,94,.15);color:var(--ok);border:1px solid rgba(34,197,94,.3)}
+.q.warn{background:rgba(245,158,11,.15);color:var(--warn);border:1px solid rgba(245,158,11,.3)}
+footer{padding:8px 16px;font-size:10px;color:var(--mut);border-top:1px solid var(--line)}
+@media(max-width:900px){.main{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+<h1>磐田市オープンデータ ダッシュボード</h1>
+<span class="meta">基準年：2022年（人口167,663人）／将来値は参考値／CC BY 3.0 等</span>
+</header>
+<div class="kpis">
+<div class="kpi"><div class="v">167,663</div><div class="l">総人口 (2022)</div></div>
+<div class="kpi"><div class="v">28.9%</div><div class="l">高齢化率 (2022)</div></div>
+<div class="kpi"><div class="v">38,584</div><div class="l">製造業従業者 (2023)</div></div>
+<div class="kpi"><div class="v">206</div><div class="l">医療機関 / 1,530床</div></div>
+<div class="kpi"><div class="v">401</div><div class="l">バス停 (2022)</div></div>
+<div class="kpi"><div class="v">93</div><div class="l">公園 / 118.79ha</div></div>
+<div class="kpi"><div class="v">135</div><div class="l">公共施設</div></div>
+<div class="kpi"><div class="v">43</div><div class="l">避難所</div></div>
+</div>
+<div class="main">
+<div class="mapbox"><iframe src="iwata_gis_map_v2.html" title="GISマップ"></iframe></div>
+<div class="charts">
+<div class="card"><h3>人口・高齢化率の推移（2007/2021/2022実績＋2050参考値）</h3><div class="chartbox"><canvas id="cPop"></canvas></div></div>
+<div class="card"><h3>製造業の偏り：従業者シェア vs 事業所数シェア</h3><div class="chartbox"><canvas id="cInd"></canvas></div></div>
+<div class="card"><h3>公共施設の内訳（135件）</h3>
+<table>
+<tr><th>種別</th><th>件数</th><th>種別</th><th>件数</th></tr>
+<tr><td>放課後児童クラブ</td><td>41</td><td>小学校</td><td>22</td></tr>
+<tr><td>幼稚園</td><td>17</td><td>中学校</td><td>10</td></tr>
+<tr><td>文化財関連</td><td>10</td><td>子育て支援</td><td>9</td></tr>
+<tr><td>保育園</td><td>8</td><td>図書館/文化/観光</td><td>5/4/5</td></tr>
+<tr><td>こども園</td><td>3</td><td>児童遊園</td><td>1</td></tr>
+</table></div>
+</div>
+</div>
+<div class="quality">
+<div class="q ok">新：人口2022・バス停2022・医療2025・製造業2023</div>
+<div class="q warn">古：施設2016・公園2017・避難所2017・災害2017/18</div>
+<div class="q warn">未取得：対応表・定員・IPSS・衛星・道路</div>
+</div>
+<footer>出典：磐田市LinkData・静岡県オープンデータ・e-Stat・国土数値情報・気象庁。将来推計は線形外挿の参考値（2050年151,948人/47.2%）。比較なしの評価語は不使用。詳細は各テーマv2レポート参照。</footer>
+<script>
+new Chart(document.getElementById('cPop'),{type:'line',
+data:{labels:['2007','2021','2022','2050(参考)'],datasets:[
+{label:'総人口',data:[176408,169013,167663,151948],borderColor:'#00d4ff',backgroundColor:'rgba(0,212,255,.1)',fill:true,tension:.3,yAxisID:'y'},
+{label:'高齢化率%',data:[19.1,28.6,28.9,47.2],borderColor:'#f59e0b',tension:.3,yAxisID:'y1'}]},
+options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#94a3b8',font:{size:10}}}},
+scales:{x:{ticks:{color:'#94a3b8',font:{size:9}},grid:{color:'#1e3a5f'}},
+y:{ticks:{color:'#94a3b8',font:{size:9}},grid:{color:'#1e3a5f'}},
+y1:{position:'right',ticks:{color:'#94a3b8',font:{size:9}},grid:{display:false}}}}});
+new Chart(document.getElementById('cInd'),{type:'bar',
+data:{labels:['輸送用機械','電子部品','プラスチック','その他','金属製品','食料品','生産用機械'],
+datasets:[{label:'従業者%',data:[51.9,7.2,5.9,4.6,4.5,3.8,3.5],backgroundColor:'#00d4ff'},
+{label:'事業所%',data:[17.9,1.6,7.4,5.8,14.4,4.7,13.2],backgroundColor:'#3b82f6'}]},
+options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#94a3b8',font:{size:10}}}},
+scales:{x:{ticks:{color:'#94a3b8',font:{size:9}},grid:{color:'#1e3a5f'}},
+y:{ticks:{color:'#94a3b8',font:{size:9}},grid:{color:'#1e3a5f'}}}}});
+</script>
+</body>
+</html>

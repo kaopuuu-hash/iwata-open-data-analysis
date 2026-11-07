@@ -1,0 +1,13 @@
+{
+  "theme": "1. 公共施設 × 人口",
+  "data_sources": {
+    "facilities": "磐田市 公共施設情報 (LinkData rdf1s4257i, kihon_iwata + tatemono_iwata)",
+    "population": "磐田市 町別人口 (LinkData rdf1s2623i, 20210331)"
+  },
+  "total_facilities": 135,
+  "total_population": 169013,
+  "total_towns": 299,
+  "facilities_with_coords": 135,
+  "analysis_date": "2026-11-07",
+  "license": "CC BY 3.0"
+}

@@ -1,0 +1,11 @@
+{
+  "theme": "4. 子育て環境分析",
+  "data_sources": {
+    "facilities": "磐田市 公共施設情報 (LinkData rdf1s4257i)",
+    "population": "磐田市 年齢別人口 (LinkData rdf1s2622i, 2021)"
+  },
+  "childcare_facilities": 111,
+  "child_population_0_14": 21801,
+  "analysis_date": "2026-11-07",
+  "license": "CC BY 3.0"
+}

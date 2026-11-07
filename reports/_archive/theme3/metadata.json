@@ -1,0 +1,19 @@
+{
+  "theme": "3. 製造業・産業構造",
+  "data_source": "2024年経済構造実態調査 製造業事業所調査（e-Stat）",
+  "stat_inf_id": "000040312314",
+  "survey_year": 2023,
+  "published": "2025-12-25",
+  "municipality": "磐田市 (22211)",
+  "analysis_date": "2026-11-07",
+  "license": "政府統計 (CC BY 4.0 相当)",
+  "total_establishments": 620,
+  "total_employees": 38584,
+  "employees_per_10000_pop": 2282.9,
+  "shipments_oku_yen": 17712.3,
+  "value_added_oku_yen": 5542.1,
+  "industries_count": 22,
+  "top_industry": "輸送用機械器具製造業",
+  "top_industry_employees": 20035,
+  "top_industry_share": 51.9
+}

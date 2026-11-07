@@ -1,0 +1,10 @@
+{
+  "theme": "10. 公園・緑地分析",
+  "data_source": "磐田市都市公園一覧 (LinkData rdf1s3748i, 2017)",
+  "total_parks": 93,
+  "total_area_ha": 118.79,
+  "parks_per_10000_pop": 5.5,
+  "area_per_capita_m2": 7.03,
+  "analysis_date": "2026-11-07",
+  "license": "CC BY 3.0"
+}

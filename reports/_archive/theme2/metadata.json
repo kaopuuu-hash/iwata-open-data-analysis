@@ -1,0 +1,16 @@
+{
+  "theme": "2. 人口構造分析",
+  "data_sources": {
+    "age_structure": "磐田市 年齢別人口 (LinkData rdf1s2622i, 2021)",
+    "population_trend": "磐田市 町別人口 (LinkData rdf1s2623i, 2010/2015/2021)",
+    "population_2007": "磐田市 年齢別人口 (LinkData rdf1s2622i, 2007)"
+  },
+  "total_population_2021": 169013,
+  "under15": 21801,
+  "working": 98918,
+  "elderly": 48294,
+  "aging_rate": 28.6,
+  "foreign_population": 8557,
+  "analysis_date": "2026-11-07",
+  "license": "CC BY 3.0"
+}

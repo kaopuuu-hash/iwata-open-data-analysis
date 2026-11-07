@@ -1,0 +1,15 @@
+{
+  "theme": "14. 公共施設の将来負担分析",
+  "data_sources": {
+    "population": "磐田市 町別人口 (LinkData, 2007-2021)",
+    "age_structure": "磐田市 年齢別人口 (LinkData, 2021)",
+    "facilities": "磐田市 公共施設情報 (LinkData)"
+  },
+  "population_2021": 169013,
+  "population_2050_projected": 152255,
+  "aging_rate_2021": 28.6,
+  "aging_rate_2050_projected": 48.3,
+  "total_facilities": 135,
+  "analysis_date": "2026-11-07",
+  "note": "Projections based on linear extrapolation of 2007-2021 trends. Not official projections."
+}

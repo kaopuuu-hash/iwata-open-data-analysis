@@ -1,0 +1,4 @@
+﻿scenario,rate_assumption,pop_2022,pop_2050,aging_2050,note
+Base,linear -565/yr (T14 v2),167663,151948,47.2,reference
+Optimistic,+0.1%/yr compound (assumed),167663,172421,n/a,what-if only
+Pessimistic,-1.0%/yr compound (assumed),167663,126538,n/a,what-if only

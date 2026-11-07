@@ -1,0 +1,32 @@
+{
+  "theme": "16. 地域構造統合分析",
+  "analysis_date": "2026-11-07",
+  "themes_completed": 15,
+  "key_indicators": {
+    "population": 169013,
+    "aging_rate": 28.6,
+    "foreign_population_pct": 5.1,
+    "total_facilities": 135,
+    "facilities_per_10000": 7.99,
+    "manufacturing_establishments": 620,
+    "manufacturing_employees": 38584,
+    "manufacturing_shipments_oku": 17712.3,
+    "childcare_facilities": 111,
+    "child_population_0_14": 21801,
+    "cultural_properties": 186,
+    "tourist_facilities": 37,
+    "medical_institutions": 206,
+    "hospital_beds": 1530,
+    "care_providers": 152,
+    "retail_stores": 1097,
+    "eating_places": 471,
+    "bus_stops": 714,
+    "parks": 93,
+    "park_area_ha": 118.79,
+    "flood_risk_cells": 125,
+    "landslide_risk_cells": 119,
+    "shelters": 43,
+    "void_cells": 65,
+    "high_heat_risk_cells": 2
+  }
+}

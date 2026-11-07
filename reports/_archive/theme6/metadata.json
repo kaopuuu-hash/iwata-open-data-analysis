@@ -1,0 +1,14 @@
+{
+  "theme": "6. 医療・福祉施設分析",
+  "data_sources": {
+    "medical": "静岡県医療機関一覧 (2025.4.1現在)",
+    "care": "磐田市 介護サービス事業者一覧 (LinkData)"
+  },
+  "medical_institutions": 206,
+  "total_beds": 1530,
+  "care_providers": 152,
+  "medical_per_10000_pop": 12.2,
+  "beds_per_10000_pop": 90.5,
+  "analysis_date": "2026-11-07",
+  "license": "CC BY 3.0"
+}

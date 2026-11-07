@@ -1,0 +1,10 @@
+{
+  "theme": "14. 公共施設の将来負担分析 (Updated)",
+  "data_source": "磐田市 人口データ (2022年更新)",
+  "population_2022": 167663,
+  "population_2050_projected": 151948,
+  "aging_rate_2022": 28.9,
+  "aging_rate_2050_projected": 47.2,
+  "analysis_date": "2026-11-07",
+  "previous_version": "2021: 169,013 (aging 28.6%)"
+}

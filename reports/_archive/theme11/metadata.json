@@ -1,0 +1,13 @@
+{
+  "theme": "11. 災害リスク分析",
+  "data_sources": {
+    "flood": "国土数値情報 洪水浸水想定区域 (A31, 2018)",
+    "landslide": "国土数値情報 土砂災害警戒区域 (A33, 2017)"
+  },
+  "flood_polygons": 89369,
+  "landslide_polygons_iwata": 1593,
+  "grid_cells": 255,
+  "cells_with_flood": 125,
+  "cells_with_landslide": 119,
+  "analysis_date": "2026-11-07"
+}

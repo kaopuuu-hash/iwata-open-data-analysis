@@ -1,0 +1,8 @@
+{
+  "theme": "17. 地域別将来シナリオ (v2)",
+  "baseline": "2022 population 167663 (unified)",
+  "base_2050_pop": 151948,
+  "base_2050_aging": 47.2,
+  "analysis_date": "2026-11-07",
+  "note": "Old T17 values (165691/37.0%) withdrawn due to baseline mismatch. Optimistic/Pessimistic are assumption-labeled what-ifs, not predictions."
+}

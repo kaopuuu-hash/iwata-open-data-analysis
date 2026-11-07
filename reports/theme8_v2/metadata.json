@@ -1,0 +1,9 @@
+{
+  "theme": "8. 公共交通アクセス分析 (Updated)",
+  "data_source": "国土数値情報 バス停留所データ v3.0 (令和4年度, 2022)",
+  "all_bus_stops": 401,
+  "community_bus_stops": 40,
+  "bus_stops_per_10000_pop": 23.9,
+  "analysis_date": "2026-11-07",
+  "previous_version": "v2 (2010): 714 stops"
+}

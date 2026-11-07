@@ -1,0 +1,12 @@
+{
+  "theme": "5. 文化・観光資源分析",
+  "data_sources": {
+    "cultural_properties": "磐田市 文化財一覧 (LinkData rdf1s10219i, 2024)",
+    "tourist_facilities": "磐田市 観光施設一覧 (LinkData rdf1s10214i, 2024)"
+  },
+  "cultural_properties_count": 186,
+  "tourist_facilities_count": 37,
+  "tourist_per_10000_pop": 2.2,
+  "analysis_date": "2026-11-07",
+  "license": "CC BY 3.0"
+}

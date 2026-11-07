@@ -1,0 +1,14 @@
+{
+  "theme": "15. 緑地・暑熱リスク分析",
+  "data_sources": {
+    "temperature": "気象庁 静岡観測所 (2025年)",
+    "urban_density": "国土数値情報 バス停留所データ (平成22年度)",
+    "land_use": "令和2年度都市計画基礎調査 (磐田市)"
+  },
+  "max_monthly_temp": 29.4,
+  "max_month": 8,
+  "grid_cells": 255,
+  "high_risk_cells": 2,
+  "analysis_date": "2026-11-07",
+  "note": "Simplified heat risk index based on urban density proxy. Satellite data and detailed green space data not available."
+}

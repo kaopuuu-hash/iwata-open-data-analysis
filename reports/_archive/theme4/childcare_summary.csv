@@ -1,0 +1,17 @@
+﻿Type Code,Type Name,Count
+D-3,中学校 (Junior High),10
+D-4,小学校 (Elementary),22
+D-5,幼稚園 (Kindergarten),17
+D-7,放課後児童クラブ (After-school),41
+E-1,保育園 (Nursery),8
+E-2,こども園 (Integrated Childcare),3
+E-5,子育て支援センター (Childcare Support),9
+N-6,児童遊園 (Playground),1
+,Total,111
+
+Age Group,Population
+0-2歳,3466
+3-5歳,4190
+6-11歳,9279
+12-14歳,4866
+0-14歳合計,21801

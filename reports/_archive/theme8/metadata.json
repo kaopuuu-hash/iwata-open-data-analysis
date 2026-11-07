@@ -1,0 +1,9 @@
+{
+  "theme": "8. 公共交通アクセス分析",
+  "data_source": "国土数値情報 バス停留所データ (平成22年度)",
+  "all_bus_stops": 714,
+  "community_bus_stops": 154,
+  "bus_stops_per_10000_pop": 42.2,
+  "analysis_date": "2026-11-07",
+  "note": "Bus stop data is from 2010. Railway station data not available."
+}
