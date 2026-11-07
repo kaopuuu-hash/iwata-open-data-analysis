@@ -57,7 +57,7 @@ footer{padding:8px 16px;font-size:10px;color:var(--mut);border-top:1px solid var
 <script>
 function parseCSV(t){const L=t.trim().split(/\r?\n/);const h=L[0].split(',');return L.slice(1).filter(x=>x.trim()).map(r=>{const c=r.split(',');const o={};h.forEach((k,i)=>o[k.trim()]=(c[i]||'').trim());return o;});}
 function num(s){return parseFloat(String(s).replace(/[,"]/g,''))||0;}
-async function load(p){const r=await fetch(p);if(!r.ok)throw new Error(p+':'+r.status);return parseCSV(await r.text());}
+async function load(p){try{const r=await fetch(p);if(!r.ok)return null;return parseCSV(await r.text());}catch(e){return null;}}
 (async function(){
 try{
 const [ts,town,mfg,fac,med,park,bus,shel,tour,cult,proj] = await Promise.all([
@@ -67,16 +67,24 @@ load('_archive/theme6/medical_institutions.csv'),load('_archive/theme10/parks.cs
 load('theme8_v2/bus_stops_v2.csv'),load('_archive/theme12/shelters.csv'),
 load('_archive/theme5/tourist_facilities.csv'),load('_archive/theme5/cultural_properties.csv'),
 load('theme14_v2/population_projection_v2.csv')]);
+const missing = [];
+if(!mfg)missing.push('製造業の内訳');
+if(!med)missing.push('医療機関');
+if(!park)missing.push('公園');
+if(!shel)missing.push('避難所');
+if(!tour)missing.push('観光施設');
+if(!cult)missing.push('文化財');
 const r2022 = ts.find(r=>r.year==='2022');
-const beds = med.reduce((a,x)=>a+num(x['病床数']),0);
-const parkArea = park.reduce((a,x)=>a+num(x.area_m2),0);
+const beds = med?med.reduce((a,x)=>a+num(x['病床数']),0):0;
+const parkArea = park?park.reduce((a,x)=>a+num(x.area_m2),0):0;
 const kpis = [
 [Number(r2022.total).toLocaleString(),'総人口 (2022)'],[r2022.aging_rate+'%','高齢化率 (2022)'],
-[mfg[0].employees?Number(num(mfg[0].employees)).toLocaleString():'-','製造業従業者'],
-[med.length+' / '+beds.toLocaleString(),'医療機関 / 病床'],
-[bus.length,'バス停 (2022)'],[park.length,'公園 / '+(parkArea/10000).toFixed(1)+'ha'],
+[mfg&&mfg[0].employees?Number(num(mfg[0].employees)).toLocaleString():'—','製造業従業者'],
+[med?med.length+' / '+beds.toLocaleString():'—','医療機関 / 病床'],
+[bus.length,'バス停 (2022)'],[park?park.length+' / '+(parkArea/10000).toFixed(1)+'ha':'—','公園'],
 [fac.reduce((a,x)=>a+num(x.facility_count),0),'公共施設'],
-[shel.length,'避難所']];
+[shel?shel.length:'—','避難所']];
+if(missing.length)document.querySelector('footer').insertAdjacentHTML('beforeend','<br>未取得データ（CSVが配布物に含まれていません）: '+missing.join('、'));
 document.getElementById('kpis').innerHTML = kpis.map(k=>'<div class="kpi"><div class="v">'+k[0]+'</div><div class="l">'+k[1]+'</div></div>').join('');
 const py = ts.map(r=>r.year), pv = ts.map(r=>num(r.total)), av = ts.map(r=>num(r.aging_rate));
 py.push('2050(参考)'); pv.push(num(proj[proj.length-1]['Population'])); av.push(num(proj[proj.length-1]['Aging Rate']));
@@ -88,6 +96,7 @@ options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{colo
 scales:{x:{ticks:{color:'#94a3b8',font:{size:9}},grid:{color:'#1e3a5f'}},
 y:{ticks:{color:'#94a3b8',font:{size:9}},grid:{color:'#1e3a5f'}},
 y1:{position:'right',ticks:{color:'#94a3b8',font:{size:9}},grid:{display:false}}}}});
+if(mfg&&mfg.length>1){
 const tot_e = num(mfg[0].employees), tot_s = num(mfg[0].est_total);
 const subs = mfg.slice(1).filter(r=>r.code!=='00').sort((a,b)=>num(b.employees)-num(a.employees)).slice(0,7);
 new Chart(document.getElementById('cInd'),{type:'bar',
@@ -97,6 +106,7 @@ data:{labels:subs.map(r=>r.name),datasets:[
 options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#94a3b8',font:{size:10}}}},
 scales:{x:{ticks:{color:'#94a3b8',font:{size:9}},grid:{color:'#1e3a5f'}},
 y:{ticks:{color:'#94a3b8',font:{size:9}},grid:{color:'#1e3a5f'}}}}});
+}
 const bins = Array(8).fill(0), labels = ['0-10','10-20','20-30','30-40','40-50','50-60','60-70','70+'];
 town.forEach(r=>{const a=num(r.aging_rate);bins[Math.min(7,Math.floor(a/10))]++;});
 new Chart(document.getElementById('cAge'),{type:'bar',
