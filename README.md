@@ -7,7 +7,7 @@
 
 - [総合分析レポート v2](reports/磐田市オープンデータ総合分析レポート_v2.md) — 17テーマの統合指標と横断的な事実、未検証・未取得の一覧
 - [校正表 v2](reports/校正表_v2.md) — 初版の欠陥と v2 での対応、テーマ別の判定
-- ダッシュボード：[iwata_dashboard_standalone.html](reports/iwata_dashboard_standalone.html)（データを埋め込んだ単体版。Chart.js のみ CDN から読み込みます）／ [iwata_dashboard_v2.html](reports/iwata_dashboard_v2.html)（CSV連携版）
+- ダッシュボード：[iwata_dashboard_standalone.html](reports/iwata_dashboard_standalone.html)（データを埋め込んだ単体版。Chart.js のみ CDN から読み込みます）
 - GISマップ：[iwata_gis_map_v2.html](reports/iwata_gis_map_v2.html)（Leaflet と地図タイルを外部から読み込みます）
 
 ## テーマ別レポート（v2）
@@ -50,6 +50,15 @@
 
 分析・検証スクリプトはファイル数が膨大なため本リポジトリには同梱していません。
 再現条件（出典・対象年度・変換ルール・算出過程）は各テーマのレポートと metadata に記録しています。
+
+## 旧版について
+
+旧版は過程の記録として残しています。閲覧は上の入口（最新版）をご利用ください。
+
+- [iwata_dashboard_v2.html](reports/iwata_dashboard_v2.html)（CSV連携版）：スクリプトと対になる再現確認用。一部のCSVが配布物に含まれていないため、該当する指標は「—」表示になります
+- [iwata_dashboard.html](reports/iwata_dashboard.html)（ダッシュボード v1）：校正前の版
+- [iwata_gis_map.html](reports/iwata_gis_map.html)（GISマップ v1）と [iwata_gis_prototype.html](reports/iwata_gis_prototype.html)（試作版）
+- v1レポート一式は `reports/_archive/` にあります
 
 ## 関連リンク
 
