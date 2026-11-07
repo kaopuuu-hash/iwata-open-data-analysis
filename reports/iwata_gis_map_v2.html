@@ -34,7 +34,8 @@ body { margin: 0; font-family: 'Yu Gothic', sans-serif; }
     <label><input type="checkbox" id="parks" checked> 公園 (93)</label>
     <label><input type="checkbox" id="tourist" checked> 観光施設 (37)</label>
     <label><input type="checkbox" id="shelters" checked> 避難所 (43)</label>
-    <label><input type="checkbox" id="voidHeat" checked> 生活空白ヒートマップ</label>
+    <label><input type="checkbox" id="voidCells" checked> 生活空白セル (116)</label>
+    <label><input type="checkbox" id="voidHeat"> 生活空白ヒートマップ</label>
     <label><input type="checkbox" id="busHeat"> バス停密度ヒートマップ</label>
     <div class="legend">
         <h3>凡例</h3>
@@ -102,7 +103,16 @@ var voidCells = [[34.685000,137.805000,2],[34.685000,137.815000,2],[34.685000,13
 var voidHeatData = voidCells.map(function(v) {
     return [v[0], v[1], v[2] === 0 ? 1.0 : 0.0];
 });
-var voidHeat = L.heatLayer(voidHeatData, {radius: 32, blur: 18, minOpacity: 0.25, max: 1.0, maxZoom: 17, gradient: {0.0: 'blue', 0.5: 'yellow', 1.0: 'red'}}).addTo(map);
+var voidHeat = L.heatLayer(voidHeatData, {radius: 32, blur: 18, minOpacity: 0.25, max: 1.0, maxZoom: 17, gradient: {0.0: 'blue', 0.5: 'yellow', 1.0: 'red'}});
+
+// Void cells (1km mesh): bus-stop-free cells drawn as rectangles
+var voidCellLayer = L.layerGroup();
+voidCells.forEach(function(v) {
+    if (v[2] === 0) {
+        voidCellLayer.addLayer(L.rectangle([[v[0] - 0.005, v[1] - 0.005], [v[0] + 0.005, v[1] + 0.005]], {color: '#d95f02', weight: 1, fillColor: '#e07b39', fillOpacity: 0.35}));
+    }
+});
+voidCellLayer.addTo(map);
 
 // Bus density heatmap
 var busHeatData = busStops.map(function(b) { return [b[0], b[1], 0.5]; });
@@ -118,6 +128,7 @@ document.getElementById('parks').addEventListener('change', function() { toggle(
 document.getElementById('tourist').addEventListener('change', function() { toggle(touristLayer, this.checked); });
 document.getElementById('shelters').addEventListener('change', function() { toggle(shelterLayer, this.checked); });
 document.getElementById('voidHeat').addEventListener('change', function() { toggle(voidHeat, this.checked); });
+document.getElementById('voidCells').addEventListener('change', function() { toggle(voidCellLayer, this.checked); });
 document.getElementById('busHeat').addEventListener('change', function() { toggle(busHeat, this.checked); });
 </script>
 </body>
