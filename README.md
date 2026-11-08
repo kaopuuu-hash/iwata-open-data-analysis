@@ -8,6 +8,7 @@
 - [総合分析レポート v2](reports/磐田市オープンデータ総合分析レポート_v2.md) — 17テーマの統合指標と横断的な事実、未検証・未取得の一覧
 - [校正表 v2](reports/校正表_v2.md) — 初版の欠陥と v2 での対応、テーマ別の判定
 - ダッシュボード：[iwata_dashboard_standalone.html](reports/iwata_dashboard_standalone.html)（データを埋め込んだ単体版。Chart.js のみ CDN から読み込みます）
+- テーマ7 深掘り（食料品・買い物アクセス）：[food_access/index.html](food_access/index.html)
 - GISマップ：[iwata_gis_map_v2.html](reports/iwata_gis_map_v2.html)（Leaflet と地図タイルを外部から読み込みます）
 
 ## テーマ別レポート（v2）
