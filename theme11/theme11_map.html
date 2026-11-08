@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>磐田市 災害リスク・地域防災力 統合分析マップ</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        body { margin: 0; font-family: "メイリオ", "Hiragino Kaku Gothic ProN", sans-serif; background: #f7f5f2; color: #222; line-height: 1.7; }
+        main { max-width: 1080px; margin: 0 auto; padding: 20px 16px 40px; }
+        h1 { font-size: 20px; margin: 0 0 6px; }
+        .lead { font-size: 14px; color: #444; margin: 0 0 14px; }
+        #map { height: 70vh; max-height: 600px; width: 100%; border: 1px solid #ddd; border-radius: 8px; }
+        .leaflet-container { font-family: "メイリオ", "Hiragino Kaku Gothic ProN", sans-serif; }
+        .band { display: flex; flex-wrap: wrap; gap: 16px 40px; background: #fff; border: 1px solid #e5e0d8; border-radius: 8px; padding: 14px 16px; margin-top: 14px; }
+        .band h3 { margin: 0 0 8px; font-size: 15px; }
+        .layer-item { margin: 5px 0; display: flex; align-items: center; }
+        .layer-item input { margin-right: 8px; }
+        .legend-item { display: flex; align-items: center; margin: 3px 0; font-size: 14px; }
+        .legend-color { width: 20px; height: 20px; margin-right: 8px; border: 2px solid #333; flex: none; }
+        .stats { background: #fff; border: 1px solid #e5e0d8; border-radius: 8px; padding: 14px 16px; margin-top: 14px; }
+        .stats h3 { margin: 0 0 8px; font-size: 15px; }
+        .stat-item { margin: 4px 0; font-size: 14px; }
+        .note { margin-top: 10px; font-size: 12px; color: #666; border-top: 1px solid #ddd; padding-top: 10px; }
+        .note p { margin: 4px 0; }
+    </style>
+</head>
+<body>
+<main>
+    <h1>磐田市 災害リスク・地域防災力 統合分析マップ</h1>
+    <p class="lead">洪水・土砂災害・津波のリスクがある地域と、そこに住む人口を500mメッシュで重ねた地図です。色の付いたメッシュをクリックすると、人口とリスクの種類が表示されます。</p>
+
+    <div id="map"></div>
+
+    <div class="band">
+        <div>
+            <h3>表示する災害リスク</h3>
+            <div class="layer-item">
+                <input type="checkbox" id="layer-flood" checked>
+                <label for="layer-flood">洪水浸水想定区域（計画規模）</label>
+            </div>
+            <div class="layer-item">
+                <input type="checkbox" id="layer-landslide" checked>
+                <label for="layer-landslide">土砂災害警戒区域</label>
+            </div>
+            <div class="layer-item">
+                <input type="checkbox" id="layer-tsunami" disabled>
+                <label for="layer-tsunami">津波浸水想定区域（データ未取得）</label>
+            </div>
+        </div>
+        <div>
+            <h3>リスク色分け</h3>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color:#ffcc00;"></div>
+                <span>洪水</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color:#ff9900;"></div>
+                <span>土砂災害</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color:#ff6600;"></div>
+                <span>津波（データ未取得）</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color:#ff0000;"></div>
+                <span>複合リスク（2種類以上）</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="stats">
+        <h3>分析結果サマリー</h3>
+        <div class="stat-item"><strong>総人口:</strong> 166,672 人</div>
+        <div class="stat-item"><strong>洪水リスク人口:</strong> 29,900 人</div>
+        <div class="stat-item"><strong>土砂災害リスク人口:</strong> 2,166 人</div>
+        <div class="stat-item"><strong>複合リスク人口:</strong> 6,428 人</div>
+        <div class="stat-item"><strong>対象メッシュ数:</strong> 330 セル</div>
+        <div class="note">
+            <p>※ データ出典：国土数値情報（国交省 2025年度）、静岡県オープンデータ、磐田市オープンデータ</p>
+            <p>※ 座標系：世界測地系 JGD2011（EPSG:4612）</p>
+            <p>※ 65歳以上人口データは500mメッシュ単位での取得が困難なため、町別データのみ公開されています。</p>
+            <p>※ 地区別の65歳以上人口は <a href="iwata_town_age65plus_2020.html">別ページ</a> にまとめています。</p>
+            <p>※ 津波浸水想定区域のデータは未取得のため、地図には表示されません。</p>
+            <p>※ 避難所座標のない施設は地図に表示されていません。</p>
+        </div>
+    </div>
+</main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+        // 地図の初期化
+        var map = L.map('map').setView([34.73, 137.87], 11);
+
+        // 背景地図
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // GeoJSONデータの読み込み
+        var floodLayer = L.geoJSON(null, {
+            style: { color: '#ffcc00', weight: 1, fillOpacity: 0.4 },
+            onEachFeature: function(feature, layer) {
+                var props = feature.properties;
+                var popupContent = '<strong>メッシュコード:</strong> ' + props.mesh_code + '<br>' +
+                                   '<strong>総人口:</strong> ' + props.total_pop.toLocaleString() + ' 人<br>' +
+                                   '<strong>災害リスク:</strong> 洪水<br>';
+                layer.bindPopup(popupContent);
+            }
+        });
+
+        var landslideLayer = L.geoJSON(null, {
+            style: { color: '#ff9900', weight: 1, fillOpacity: 0.4 },
+            onEachFeature: function(feature, layer) {
+                var props = feature.properties;
+                var popupContent = '<strong>メッシュコード:</strong> ' + props.mesh_code + '<br>' +
+                                   '<strong>総人口:</strong> ' + props.total_pop.toLocaleString() + ' 人<br>' +
+                                   '<strong>災害リスク:</strong> 土砂災害<br>';
+                layer.bindPopup(popupContent);
+            }
+        });
+
+        var tsunamiLayer = L.geoJSON(null, {
+            style: { color: '#ff6600', weight: 1, fillOpacity: 0.4 },
+            onEachFeature: function(feature, layer) {
+                var props = feature.properties;
+                var popupContent = '<strong>メッシュコード:</strong> ' + props.mesh_code + '<br>' +
+                                   '<strong>総人口:</strong> ' + props.total_pop.toLocaleString() + ' 人<br>' +
+                                   '<strong>災害リスク:</strong> 津波<br>';
+                layer.bindPopup(popupContent);
+            }
+        });
+
+        // GeoJSONデータの読み込み
+        fetch('iwata_disaster_mesh.geojson')
+            .then(response => response.json())
+            .then(data => {
+                console.log('GeoJSON loaded:', data.features.length, 'features');
+                
+                floodLayer.clearLayers();
+                landslideLayer.clearLayers();
+                tsunamiLayer.clearLayers();
+
+                data.features.forEach(function(feature) {
+                    var props = feature.properties;
+                    var color = '#999999';
+                    if (props.risk_count >= 2) color = '#ff0000';
+                    else if (props.flood_risk === 1) color = '#ffcc00';
+                    else if (props.landslide_risk === 1) color = '#ff9900';
+                    else if (props.tsunami_risk === 1) color = '#ff6600';
+                    var style = { color: color, weight: 1, fillColor: color, fillOpacity: 0.4 };
+                    var risks = [];
+                    if (props.flood_risk === 1) risks.push('洪水');
+                    if (props.landslide_risk === 1) risks.push('土砂災害');
+                    if (props.tsunami_risk === 1) risks.push('津波');
+                    var popupContent = '<strong>メッシュコード:</strong> ' + props.mesh_code + '<br>' +
+                                       '<strong>総人口:</strong> ' + props.total_pop.toLocaleString() + ' 人<br>' +
+                                       '<strong>災害リスク:</strong> ' + risks.join('・') + '<br>';
+                    function makeLayer() {
+                        var l = L.geoJSON(feature, { style: style });
+                        l.bindPopup(popupContent);
+                        return l;
+                    }
+                    if (props.flood_risk === 1) {
+                        floodLayer.addLayer(makeLayer());
+                    }
+                    if (props.landslide_risk === 1) {
+                        landslideLayer.addLayer(makeLayer());
+                    }
+                    if (props.tsunami_risk === 1) {
+                        tsunamiLayer.addLayer(makeLayer());
+                    }
+                });
+
+                map.addLayer(floodLayer);
+                map.addLayer(landslideLayer);
+            })
+            .catch(error => console.error('Error loading GeoJSON:', error));
+
+        // レイヤー切り替えイベント
+        document.getElementById('layer-flood').addEventListener('change', function() {
+            if (this.checked) map.addLayer(floodLayer);
+            else map.removeLayer(floodLayer);
+        });
+        document.getElementById('layer-landslide').addEventListener('change', function() {
+            if (this.checked) map.addLayer(landslideLayer);
+            else map.removeLayer(landslideLayer);
+        });
+        document.getElementById('layer-tsunami').addEventListener('change', function() {
+            if (this.checked) map.addLayer(tsunamiLayer);
+            else map.removeLayer(tsunamiLayer);
+        });
+    </script>
+</body>
+</html>

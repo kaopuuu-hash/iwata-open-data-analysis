@@ -9,6 +9,7 @@
 - [校正表 v2](reports/校正表_v2.md) — 初版の欠陥と v2 での対応、テーマ別の判定
 - ダッシュボード：[iwata_dashboard_standalone.html](reports/iwata_dashboard_standalone.html)（データを埋め込んだ単体版。Chart.js のみ CDN から読み込みます）
 - テーマ7 深掘り（食料品・買い物アクセス）：[food_access/index.html](food_access/index.html)
+- テーマ11 深掘り（災害リスクマップ＋地区別65歳以上人口）：[theme11/theme11_map.html](theme11/theme11_map.html)
 - GISマップ：[iwata_gis_map_v2.html](reports/iwata_gis_map_v2.html)（Leaflet と地図タイルを外部から読み込みます）
 
 ## テーマ別レポート（v2）

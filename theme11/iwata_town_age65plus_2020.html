@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>地区別 65歳以上人口（2020年）｜テーマ11 補助データ</title>
+<style>
+  body { font-family: "メイリオ", "Hiragino Kaku Gothic ProN", sans-serif; margin: 0; background: #f7f5f2; color: #222; line-height: 1.7; }
+  main { max-width: 760px; margin: 0 auto; padding: 24px 16px 48px; }
+  h1 { font-size: 20px; margin: 0 0 8px; }
+  h2 { font-size: 16px; border-left: 4px solid #b4552d; padding-left: 8px; margin: 28px 0 10px; }
+  .lead { font-size: 15px; }
+  table { border-collapse: collapse; width: 100%; background: #fff; font-size: 14px; }
+  th, td { border: 1px solid #ddd; padding: 6px 8px; text-align: right; }
+  th:first-child, td:first-child { text-align: left; }
+  thead th { background: #f0ebe4; }
+  tr.total { font-weight: bold; background: #faf6f0; }
+  .note { font-size: 12px; color: #666; margin-top: 16px; }
+  .back { margin-top: 28px; font-size: 14px; }
+  .scroll { overflow-x: auto; }
+</style>
+</head>
+<body>
+<main>
+  <h1>地区別 65歳以上人口（2020年国勢調査）</h1>
+  <p class="lead">テーマ11（災害リスク分析）の補助データです。65歳以上人口は500mメッシュ単位で取得できなかったため、地区（旧市町村）単位の集計をこの別ページにまとめています。災害リスクの地図とは細かさが違うので、地図の色分け・ポップアップとは切り離して掲載しています。</p>
+
+  <h2>地区別 65歳以上人口</h2>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>地区</th><th>65歳以上人口</th></tr></thead>
+    <tbody>
+      <tr><td>磐田</td><td>29,486 人</td></tr>
+      <tr><td>豊田</td><td>9,886 人</td></tr>
+      <tr><td>竜洋</td><td>6,989 人</td></tr>
+      <tr><td>福田</td><td>6,717 人</td></tr>
+      <tr><td>豊岡</td><td>4,291 人</td></tr>
+      <tr class="total"><td>合計</td><td>57,369 人</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>年代別の内訳</h2>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>地区</th><th>65〜69歳</th><th>70〜74歳</th><th>75〜79歳</th><th>80〜84歳</th><th>85〜89歳</th><th>90〜94歳</th><th>65歳以上 計</th></tr></thead>
+    <tbody>
+      <tr><td>磐田</td><td>5,334</td><td>6,095</td><td>6,183</td><td>4,671</td><td>3,246</td><td>3,957</td><td>29,486</td></tr>
+      <tr><td>豊田</td><td>1,700</td><td>2,124</td><td>2,301</td><td>1,688</td><td>1,030</td><td>1,043</td><td>9,886</td></tr>
+      <tr><td>竜洋</td><td>1,184</td><td>1,413</td><td>1,513</td><td>1,176</td><td>826</td><td>877</td><td>6,989</td></tr>
+      <tr><td>福田</td><td>1,282</td><td>1,335</td><td>1,293</td><td>1,026</td><td>814</td><td>967</td><td>6,717</td></tr>
+      <tr><td>豊岡</td><td>753</td><td>894</td><td>859</td><td>585</td><td>489</td><td>711</td><td>4,291</td></tr>
+      <tr class="total"><td>合計</td><td>10,253</td><td>11,861</td><td>12,149</td><td>9,146</td><td>6,405</td><td>7,555</td><td>57,369</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p class="note">※ 出典：2020年国勢調査の町別データ（iwata_town_age65plus_2020.csv）を地区単位で集計。<br>
+  ※ 総人口のデータがないため、高齢化率（割合）は算出していません。人数のみの掲載です。<br>
+  ※ 災害リスク人口（地図側の集計）とは出典・単位が異なるため、単純な比較には注意してください。</p>
+
+  <p class="back"><a href="theme11_map.html">← 災害リスクマップに戻る</a></p>
+</main>
+</body>
+</html>
