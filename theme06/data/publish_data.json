@@ -1,0 +1,235 @@
+{
+  "updated": "2026-11-10",
+  "population": {
+    "market_total": 167663,
+    "market_basis": "2022年3月31日現在 静岡県オープンデータ",
+    "mesh_total": 166672,
+    "mesh_basis": "2020年国勢調査 500mメッシュ e-Stat",
+    "difference": 991,
+    "note": "167,663人は市全体の人口統計、166,672人はメッシュ単位の空間分析用人口。基準年と集計源が異なるため、用途に応じて使い分ける。"
+  },
+  "medical": {
+    "total": 206,
+    "by_kind": {
+      "病院": 9,
+      "無床診療所": 192,
+      "有床診療所": 5
+    },
+    "beds_total": 1530,
+    "beds_by_kind": {
+      "病院": 1469,
+      "無床診療所": 0,
+      "有床診療所": 61
+    },
+    "beds_hospital_concentration_rate": 96.0,
+    "per_10k": {
+      "total": 12.29,
+      "hospital": 0.54,
+      "bedded_clinic": 0.3,
+      "clinic_no_bed": 11.45,
+      "beds_hospital": 87.62,
+      "beds_bedded_clinic": 3.64,
+      "beds_total": 91.25
+    }
+  },
+  "care": {
+    "total": 152,
+    "by_type": {
+      "訪問介護（ホームヘルプ）": 17,
+      "通所介護（デイサービス）": 11,
+      "通所リハビリ（デイケア）": 40,
+      "福祉用具貸与": 4,
+      "福祉用具販売": 5,
+      "短期入所生活介護（ショートステイ）": 13,
+      "介護老人福祉施設（特養）": 7,
+      "特定施設入居者生活介護": 12,
+      "居宅介護支援事業所": 43,
+      "Total": 152
+    },
+    "per_10k": {
+      "home_care_support": 2.56,
+      "day_rehab": 2.39,
+      "visit_care": 1.01,
+      "short_stay": 0.78,
+      "specified_facility": 0.72,
+      "day_service": 0.66,
+      "special_nursing_home": 0.42,
+      "welfare_equipment_sales": 0.3,
+      "welfare_equipment_rent": 0.24,
+      "total": 9.07
+    }
+  },
+  "spatial": {
+    "total_meshes": 330,
+    "populated_meshes": 294,
+    "facility_meshes": 311,
+    "zero_facility_populated": 170,
+    "zero_facility_population": 75664
+  },
+  "distance": {
+    "min_m": 4.0,
+    "max_m": 5693.7,
+    "avg_m": 523.4,
+    "median_m": 344.6,
+    "over_1000m_count": 31,
+    "over_1000m_pop": 8077,
+    "over_500m_count": 109,
+    "over_500m_pop": 54023,
+    "access_hard_count": 31,
+    "access_hard_pop": 8077,
+    "method": "haversine",
+    "earth_radius_km": 6371,
+    "note": "直線距離。道路距離とは異なる。"
+  },
+  "top_facility_areas": [
+    {
+      "mesh_code": "222110350",
+      "pop": 353,
+      "facility_count": 6,
+      "kinds": "無床診療所:5;病院:1",
+      "lat": 34.712299,
+      "lon": 137.848073
+    },
+    {
+      "mesh_code": "22211159015",
+      "pop": 1448,
+      "facility_count": 5,
+      "kinds": "無床診療所:5",
+      "lat": 34.686043,
+      "lon": 137.805764
+    },
+    {
+      "mesh_code": "222110160",
+      "pop": 380,
+      "facility_count": 4,
+      "kinds": "無床診療所:4",
+      "lat": 34.723729,
+      "lon": 137.855702
+    },
+    {
+      "mesh_code": "22211068001",
+      "pop": 547,
+      "facility_count": 4,
+      "kinds": "無床診療所:4",
+      "lat": 34.716677,
+      "lon": 137.867744
+    },
+    {
+      "mesh_code": "222110720",
+      "pop": 421,
+      "facility_count": 4,
+      "kinds": "有床診療所:1;無床診療所:3",
+      "lat": 34.756148,
+      "lon": 137.856049
+    }
+  ],
+  "access_challenge_areas": [
+    {
+      "mesh_code": "222112300",
+      "pop": 1105,
+      "nearest_dist_m": 1189.2,
+      "nearest_name": "いしざかクリニック",
+      "nearest_kind": "無床診療所",
+      "lat": 34.823781,
+      "lon": 137.83478
+    },
+    {
+      "mesh_code": "222111750",
+      "pop": 610,
+      "nearest_dist_m": 1029.1,
+      "nearest_name": "サイトウクリニック",
+      "nearest_kind": "無床診療所",
+      "lat": 34.697529,
+      "lon": 137.811487
+    },
+    {
+      "mesh_code": "22211224003",
+      "pop": 496,
+      "nearest_dist_m": 1596.0,
+      "nearest_name": "山下歯科医院",
+      "nearest_kind": "無床診療所",
+      "lat": 34.85068,
+      "lon": 137.842976
+    },
+    {
+      "mesh_code": "222111190",
+      "pop": 452,
+      "nearest_dist_m": 1329.8,
+      "nearest_name": "鈴木クリニック",
+      "nearest_kind": "無床診療所",
+      "lat": 34.770472,
+      "lon": 137.832213
+    },
+    {
+      "mesh_code": "222110920",
+      "pop": 447,
+      "nearest_dist_m": 1391.4,
+      "nearest_name": "すぎやま歯科",
+      "nearest_kind": "無床診療所",
+      "lat": 34.754148,
+      "lon": 137.871555
+    },
+    {
+      "mesh_code": "222111250",
+      "pop": 441,
+      "nearest_dist_m": 1025.4,
+      "nearest_name": "ふたばクリニック",
+      "nearest_kind": "無床診療所",
+      "lat": 34.737201,
+      "lon": 137.895671
+    },
+    {
+      "mesh_code": "222110890",
+      "pop": 409,
+      "nearest_dist_m": 1827.3,
+      "nearest_name": "うちやま呼吸器アレルギークリニック",
+      "nearest_kind": "無床診療所",
+      "lat": 34.764926,
+      "lon": 137.877558
+    },
+    {
+      "mesh_code": "22211235002",
+      "pop": 395,
+      "nearest_dist_m": 1093.9,
+      "nearest_name": "ヤマハ（株）豊岡工場健康管理室",
+      "nearest_kind": "無床診療所",
+      "lat": 34.796089,
+      "lon": 137.832813
+    },
+    {
+      "mesh_code": "222111180",
+      "pop": 344,
+      "nearest_dist_m": 1079.1,
+      "nearest_name": "磐田としたかクリニック",
+      "nearest_kind": "無床診療所",
+      "lat": 34.764947,
+      "lon": 137.833233
+    },
+    {
+      "mesh_code": "222110800",
+      "pop": 338,
+      "nearest_dist_m": 1194.4,
+      "nearest_name": "わたべ歯科医院",
+      "nearest_kind": "無床診療所",
+      "lat": 34.787608,
+      "lon": 137.855336
+    }
+  ],
+  "data_limitations": [
+    "医療（2025年）・介護（2024年）・人口（2022年）・メッシュ人口（2020年）の時点が異なる。",
+    "介護サービスの定員・利用者数は未取得。",
+    "介護事業者の座標データは未取得。介護の空間分析は不可。",
+    "診療科目の表記ゆれ（「ひ」「こう」「ぺ内」「ぺ外」「気」「胃」等）は分類不能のまま。要確認。",
+    "メッシュコードの9桁・11桁混在、重複キー16個が存在。集計時のキー不一致に注意。",
+    "施設密度（施設/面積）は計算不可（メッシュ面積データ未取得）。",
+    "距離は直線距離であり、道路距離とは異なる。"
+  ],
+  "data_sources": {
+    "medical": "静岡県オープンデータカタログ 医療機関一覧（2025年4月1日現在）、CC BY 3.0",
+    "care": "磐田市 介護サービス事業者一覧（LinkData）、CC BY 3.0",
+    "population_market": "静岡県オープンデータ（2022年3月31日現在、167,663人）、CC BY 3.0",
+    "population_mesh": "e-Stat 統計地理情報システム（2020年国勢調査、500mメッシュ）、政府統計の利用規約",
+    "medical_coordinates": "国土地理院 住所検索API（206/206件、100%取得）、CC BY 3.0",
+    "map_tiles": "© OpenStreetMap contributors (ODbL)"
+  }
+}

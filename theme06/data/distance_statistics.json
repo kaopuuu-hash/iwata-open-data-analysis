@@ -1,0 +1,17 @@
+{
+  "total_meshes": 330,
+  "populated_meshes": 294,
+  "min_dist_m": 4.0,
+  "max_dist_m": 5693.7,
+  "avg_dist_m": 523.4,
+  "median_dist_m": 344.6,
+  "over_1000m_count": 31,
+  "over_1000m_pop": 8077,
+  "over_500m_count": 109,
+  "over_500m_pop": 54023,
+  "access_hard_count": 31,
+  "access_hard_pop": 8077,
+  "earth_radius_km": 6371,
+  "method": "haversine",
+  "mismatch_with_existing": 0
+}

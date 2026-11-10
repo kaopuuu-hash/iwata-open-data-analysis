@@ -10,6 +10,7 @@
 - ダッシュボード：[iwata_dashboard_standalone.html](reports/iwata_dashboard_standalone.html)（データを埋め込んだ単体版。Chart.js のみ CDN から読み込みます）
 - テーマ7 深掘り（食料品・買い物アクセス）：[food_access/index.html](food_access/index.html)
 - テーマ11 深掘り（災害リスクマップ＋地区別65歳以上人口）：[theme11/theme11_map.html](theme11/theme11_map.html)
+- テーマ6 深掘り（医療・福祉施設分析）：[theme06/index.html](theme06/index.html)（医療機関206件・病床1,530床・介護152件、医療機関から1km超の課題地域31メッシュ・8,077人）
 - GISマップ：[iwata_gis_map_v2.html](reports/iwata_gis_map_v2.html)（Leaflet と地図タイルを外部から読み込みます）
 
 ## テーマ別レポート（v2）

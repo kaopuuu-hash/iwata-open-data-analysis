@@ -1,0 +1,28 @@
+{
+  "population": 167663,
+  "population_basis": "2022年3月31日現在 静岡県オープンデータ",
+  "medical_per_10k": {
+    "total": 12.29,
+    "hospital": 0.54,
+    "bedded_clinic": 0.3,
+    "clinic_no_bed": 11.45,
+    "beds_hospital": 87.62,
+    "beds_bedded_clinic": 3.64
+  },
+  "medical_beds_per_10k": 91.25,
+  "medical_beds_hospital_per_10k": 87.62,
+  "medical_beds_bedded_clinic_per_10k": 3.64,
+  "care_per_10k": {
+    "home_care_support": 2.56,
+    "day_rehab": 2.39,
+    "visit_care": 1.01,
+    "short_stay": 0.78,
+    "specified_facility": 0.72,
+    "day_service": 0.66,
+    "special_nursing_home": 0.42,
+    "welfare_equipment_sales": 0.3,
+    "welfare_equipment_rent": 0.24
+  },
+  "care_total_per_10k": 9.07,
+  "facility_density": "unavailable - no area data"
+}
