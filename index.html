@@ -5,34 +5,43 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>公開オープンデータ分析（テーマ15選）</title>
 <style>
-body{font-family:system-ui,-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif;margin:0;padding:24px 16px 48px;line-height:1.7;background:#faf8f5;color:#26221d}
-main{max-width:760px;margin:0 auto}
-h1{font-size:1.45rem;margin:0 0 8px}
-h2{font-size:1.05rem;margin:32px 0 8px;border-bottom:2px solid #b4552d;padding-bottom:4px}
-p.lead{color:#5c554b;margin:0 0 8px}
-a{color:#9a3f1c}
-ul{padding-left:1.2em}
-li{margin:4px 0}
-.big{display:block;border:1px solid #d8d0c4;border-radius:10px;padding:14px 16px;margin:10px 0;text-decoration:none;background:#fff}
-.big b{font-size:1.05rem}
-.big span{display:block;color:#5c554b;font-size:.9rem}
-.foot{margin-top:40px;border-top:1px solid #d8d0c4;padding-top:12px;color:#5c554b;font-size:.9rem}
-@media (prefers-color-scheme: dark){body{background:#171512;color:#e8e2d8}a{color:#e08a5a}.big{background:#201d19;border-color:#3d382f}.big span,.foot,p.lead{color:#a89f92}h2{border-color:#e08a5a}}
+:root{--bg:#faf8f4;--card:#ffffff;--ink:#2b2b2b;--muted:#6b6b6b;--accent:#1f6feb;--accent-soft:#e8f0fe;--line:#e5e0d8;--radius:12px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;line-height:1.7}
+header.top{background:#1c2b39;color:#fff;padding:20px 16px}
+header.top h1{margin:0;font-size:1.25rem}
+main{max-width:960px;margin:0 auto;padding:0 16px 48px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;margin:14px 0;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+h2{font-size:1.1rem;margin:28px 0 8px}
+p.lead{color:var(--muted);margin:0 0 8px}
+.card p.lead:last-child{margin-bottom:0}
+a{color:var(--accent)}
+.grid{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:640px){.grid{grid-template-columns:1fr 1fr}}
+.big{display:block;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px;color:inherit;text-decoration:none;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.big:hover{border-color:var(--accent)}
+.big b{display:block;font-size:.98rem;margin:0 0 4px}
+.big span{display:block;font-size:.8rem;color:var(--muted)}
+.foot{margin-top:40px;border-top:1px solid var(--line);padding-top:12px;color:var(--muted);font-size:.78rem}
 </style>
 </head>
 <body>
+<header class="top"><h1>公開オープンデータ分析（テーマ15選）</h1></header>
 <main>
-<h1>公開オープンデータ分析（テーマ15選）</h1>
+<div class="card">
 <p class="lead">仮想街いわたの公開オープンデータによる地域分析。基準は2022年（人口167,663人）。全テーマを「問い → 仮説 → 検証 → 結論」の型で実施し、校正表による欠陥監査を経て v2 に作り直した成果物です。</p>
 <p class="lead">本サイトは、公開データを題材にした仮想の街『いわた』の分析演習です。</p>
+</div>
 
 <h2>見る</h2>
+<div class="grid">
 <a class="big" href="reports/iwata_dashboard_standalone.html"><b>ダッシュボード（スタンドアローン版）</b><span>データを埋め込んだ単体版。全指標とグラフ、GISマップを1ページで。</span></a>
 <a class="big" href="food_access/index.html"><b>テーマ7 深掘り：食料品・買い物アクセス</b><span>食料品店舗417件の分布マップと、買い物アクセス困難地域マップ。</span></a>
 <a class="big" href="theme11/theme11_map.html"><b>テーマ11 深掘り：災害リスク</b><span>洪水・土砂災害のリスクメッシュ地図。地区別の65歳以上人口も別ページで見られます（津波データは未取得）。</span></a>
 <a class="big" href="theme06/"><b>テーマ6 深掘り：医療・福祉施設分析</b><span>医療機関206件・病床1,530床、介護サービス事業者152件の分布とアクセス分析。医療機関から1km超の課題地域は31メッシュ・8,077人。</span></a>
 <a class="big" href="theme02/"><b>テーマ2 深掘り：人口構造・人口変化</b><span>総人口は2007年176,408人から2022年167,663人へ減少（-5.0%）、高齢化率は28.9%。IPSS推計では2050年に135,644人（-18.6%）。町別・地区別の地域差と、人口減少の構造（自然減が主因）を深掘り。</span></a>
 <a class="big" href="reports/iwata_gis_map_v2.html"><b>GISマップ v2</b><span>地図で見る分析レイヤー。</span></a>
+</div>
 
 
 
