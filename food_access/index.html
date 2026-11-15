@@ -5,24 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>テーマ7 深掘り：食料品・買い物アクセス | 公開オープンデータ分析</title>
 <style>
-body{font-family:system-ui,-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif;margin:0;padding:24px 16px 48px;line-height:1.7;background:#faf8f5;color:#26221d}
-main{max-width:760px;margin:0 auto}
-h1{font-size:1.4rem;margin:0 0 8px}
-h2{font-size:1.05rem;margin:32px 0 8px;border-bottom:2px solid #b4552d;padding-bottom:4px}
-p.lead{color:#5c554b;margin:0 0 8px}
-a{color:#9a3f1c}
+:root{--bg:#faf8f4;--card:#ffffff;--ink:#2b2b2b;--muted:#6b6b6b;--accent:#1f6feb;--accent-soft:#e8f0fe;--line:#e5e0d8;--radius:12px}
+*{box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;margin:0;line-height:1.7;background:var(--bg);color:var(--ink)}
+header.top{background:#1c2b39;color:#fff;padding:20px 16px}
+header.top h1{margin:0;font-size:1.25rem}
+main{max-width:960px;margin:0 auto;padding:24px 16px 48px}
+h2{font-size:1.1rem;margin:32px 0 8px;border-bottom:2px solid var(--accent);padding-bottom:4px}
+p.lead{color:var(--muted);margin:0 0 8px}
+a{color:var(--accent)}
 ul{padding-left:1.2em}
 li{margin:4px 0}
-.big{display:block;border:1px solid #d8d0c4;border-radius:10px;padding:14px 16px;margin:10px 0;text-decoration:none;background:#fff}
+.big{display:block;border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;margin:10px 0;text-decoration:none;background:var(--card);color:inherit;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.big:hover{border-color:var(--accent)}
 .big b{font-size:1.05rem}
-.big span{display:block;color:#5c554b;font-size:.9rem}
-.foot{margin-top:40px;border-top:1px solid #d8d0c4;padding-top:12px;color:#5c554b;font-size:.9rem}
-@media (prefers-color-scheme: dark){body{background:#171512;color:#e8e2d8}a{color:#e08a5a}.big{background:#201d19;border-color:#3d382f}.big span,.foot,p.lead{color:#a89f92}h2{border-color:#e08a5a}}
+.big span{display:block;color:var(--muted);font-size:.9rem}
+.foot{margin-top:40px;border-top:1px solid var(--line);padding-top:12px;color:var(--muted);font-size:.9rem}
 </style>
 </head>
 <body>
+<header class="top"><h1>テーマ7 深掘り：食料品・買い物アクセス</h1></header>
 <main>
-<h1>テーマ7 深掘り：食料品・買い物アクセス</h1>
 <p class="lead">テーマ7（商業）の深掘りとして、食料品店舗の分布と、店舗から離れた地域の買い物アクセスを分析したページです。食料品店舗は市内に417件。店舗から500m以上離れたメッシュは73件、そこに住む人口は24,507人です。</p>
 
 <h2>見る</h2>

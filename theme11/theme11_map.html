@@ -6,28 +6,30 @@
     <title>仮想街いわた 災害リスク・地域防災力 統合分析マップ</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
-        body { margin: 0; font-family: "メイリオ", "Hiragino Kaku Gothic ProN", sans-serif; background: #f7f5f2; color: #222; line-height: 1.7; }
+        body { margin: 0; font-family: "メイリオ", "Hiragino Kaku Gothic ProN", sans-serif; background: #faf8f4; color: #2b2b2b; line-height: 1.7; }
         main { max-width: 1080px; margin: 0 auto; padding: 20px 16px 40px; }
-        h1 { font-size: 20px; margin: 0 0 6px; }
+        header.top { background: #1c2b39; color: #fff; padding: 20px 16px; }
+        header.top h1 { margin: 0; font-size: 1.25rem; }
+        a { color: #1f6feb; }
         .lead { font-size: 14px; color: #444; margin: 0 0 14px; }
-        #map { height: 70vh; max-height: 600px; width: 100%; border: 1px solid #ddd; border-radius: 8px; }
+        #map { height: 70vh; max-height: 600px; width: 100%; border: 1px solid #e5e0d8; border-radius: 12px; }
         .leaflet-container { font-family: "メイリオ", "Hiragino Kaku Gothic ProN", sans-serif; }
-        .band { display: flex; flex-wrap: wrap; gap: 16px 40px; background: #fff; border: 1px solid #e5e0d8; border-radius: 8px; padding: 14px 16px; margin-top: 14px; }
+        .band { display: flex; flex-wrap: wrap; gap: 16px 40px; background: #fff; border: 1px solid #e5e0d8; border-radius: 12px; padding: 14px 16px; margin-top: 14px; box-shadow: 0 1px 3px rgba(0,0,0,.05); }
         .band h3 { margin: 0 0 8px; font-size: 15px; }
         .layer-item { margin: 5px 0; display: flex; align-items: center; }
         .layer-item input { margin-right: 8px; }
         .legend-item { display: flex; align-items: center; margin: 3px 0; font-size: 14px; }
         .legend-color { width: 20px; height: 20px; margin-right: 8px; border: 2px solid #333; flex: none; }
-        .stats { background: #fff; border: 1px solid #e5e0d8; border-radius: 8px; padding: 14px 16px; margin-top: 14px; }
+        .stats { background: #fff; border: 1px solid #e5e0d8; border-radius: 12px; padding: 14px 16px; margin-top: 14px; box-shadow: 0 1px 3px rgba(0,0,0,.05); }
         .stats h3 { margin: 0 0 8px; font-size: 15px; }
         .stat-item { margin: 4px 0; font-size: 14px; }
-        .note { margin-top: 10px; font-size: 12px; color: #666; border-top: 1px solid #ddd; padding-top: 10px; }
+        .note { margin-top: 10px; font-size: 12px; color: #6b6b6b; border-top: 1px solid #e5e0d8; padding-top: 10px; }
         .note p { margin: 4px 0; }
     </style>
 </head>
 <body>
+<header class="top"><h1>仮想街いわた 災害リスク・地域防災力 統合分析マップ</h1></header>
 <main>
-    <h1>仮想街いわた 災害リスク・地域防災力 統合分析マップ</h1>
     <p class="lead">洪水・土砂災害・津波のリスクがある地域と、そこに住む人口を500mメッシュで重ねた地図です。色の付いたメッシュをクリックすると、人口とリスクの種類が表示されます。</p>
 
     <div id="map"></div>
