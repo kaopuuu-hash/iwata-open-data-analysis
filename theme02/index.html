@@ -5,45 +5,45 @@
 <title>仮想街いわた 人口構造・人口変化 深掘り分析</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-:root{--bg:#faf8f4;--card:#ffffff;--ink:#2b2b2b;--muted:#6b6b6b;--accent:#1f6feb;--accent-soft:#e8f0fe;--line:#e5e0d8;--radius:12px}
-*{box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;line-height:1.7;margin:0;padding:0;color:var(--ink);background:var(--bg)}
-header.top{background:#1c2b39;color:#fff;padding:20px 16px}
-header.top h1{margin:0;font-size:1.25rem}
-.container{max-width:960px;margin:0 auto;padding:16px}
-h2{font-size:20px;border-bottom:2px solid var(--accent);padding-bottom:4px;margin-top:28px}
-h3{font-size:17px;margin-top:20px}
-p{margin:8px 0}
-ul,ol{margin:8px 0 8px 24px}
-li{margin:4px 0}
-a{color:var(--accent)}
-table{border-collapse:collapse;width:100%;margin:12px 0;font-size:14px;background:var(--card)}
-th,td{border:1px solid var(--line);padding:6px 8px;text-align:left}
-th{background:var(--accent-soft)}
-td.num,th.num{text-align:right}
-.note{font-size:12px;color:var(--muted);margin:4px 0}
-.source-box{margin-top:16px;padding:12px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);font-size:13px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
-.source-box h4{margin:0 0 6px;font-size:15px}
-.source-box ul{margin:4px 0 4px 20px}
-.source-box li{margin:3px 0}
-.img-frame{width:100%;max-width:760px;margin:12px auto;display:block;border:1px solid var(--line);border-radius:var(--radius)}
-.highlight{background:#fffde7;padding:12px;border-left:4px solid #fbc02d;margin:12px 0}
-.fact{margin:8px 0;padding:8px;background:var(--card);border-left:3px solid var(--accent)}
-.limitation{margin:8px 0;padding:8px;background:#ffeef0;border-left:3px solid #e57373}
-.toc{background:var(--card);padding:12px;border:1px solid var(--line);border-radius:var(--radius);margin:12px 0;box-shadow:0 1px 3px rgba(0,0,0,.05)}
-.toc ul{margin:4px 0 4px 20px}
-@media (max-width:600px){
-.container{padding:12px}
-h2{font-size:18px}
-table{font-size:12px}
-th,td{padding:4px 6px}
-
-}
+  body { font-family: Arial, "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+         line-height: 1.6; margin: 0; padding: 0; color: #333; background: #fafafa; }
+  .container { max-width: 960px; margin: 0 auto; padding: 16px; background: #fff; }
+  h1 { font-size: 24px; border-bottom: 2px solid #333; padding-bottom: 8px; margin-top: 24px; }
+  h2 { font-size: 20px; border-bottom: 1px solid #999; padding-bottom: 4px; margin-top: 28px; }
+  h3 { font-size: 17px; margin-top: 20px; }
+  p { margin: 8px 0; }
+  ul, ol { margin: 8px 0 8px 24px; }
+  li { margin: 4px 0; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 14px; }
+  th, td { border: 1px solid #ccc; padding: 6px 8px; text-align: left; }
+  th { background: #f5f5f5; }
+  td.num, th.num { text-align: right; }
+  .note { font-size: 12px; color: #666; margin: 4px 0; }
+  .source-box { margin-top: 16px; padding: 12px; background: #f5f5f5;
+                border: 1px solid #ddd; border-radius: 5px; font-size: 13px; }
+  .source-box h4 { margin: 0 0 6px; font-size: 15px; }
+  .source-box ul { margin: 4px 0 4px 20px; }
+  .source-box li { margin: 3px 0; }
+  .img-frame { width: 100%; max-width: 760px; margin: 12px auto; display: block;
+               border: 1px solid #ccc; border-radius: 5px; }
+  .highlight { background: #fffde7; padding: 12px; border-left: 4px solid #fbc02d; margin: 12px 0; }
+  .fact { margin: 8px 0; padding: 8px; background: #f9f9f9; border-left: 3px solid #2196f3; }
+  .limitation { margin: 8px 0; padding: 8px; background: #ffeef0; border-left: 3px solid #e57373; }
+  .toc { background: #f5f5f5; padding: 12px; border-radius: 5px; margin: 12px 0; }
+  .toc ul { margin: 4px 0 4px 20px; }
+  @media (max-width: 600px) {
+    .container { padding: 12px; }
+    h1 { font-size: 20px; }
+    h2 { font-size: 18px; }
+    table { font-size: 12px; }
+    th, td { padding: 4px 6px; }
+  }
 </style>
 </head>
 <body>
-<header class="top"><h1>仮想街いわた 人口構造・人口変化 深掘り分析</h1></header>
 <div class="container">
+
+<h1>仮想街いわた 人口構造・人口変化 深掘り分析</h1>
 <p>公開オープンデータ分析 テーマ2「人口構造・人口変化」の深掘りページです。将来人口・地域間格差・人口減少構造の3領域を掲載します。</p>
 <p class="note">本ページは、公開データを題材にした仮想の街『いわた』の分析演習です。</p>
 <p class="note">作成日: 2026-11-14 ／ 対象: 静岡県仮想街いわた ／ データ取得日: 2026-11-07〜2026-11-11</p>
@@ -274,7 +274,7 @@ th,td{padding:4px 6px}
 <tr><td>中野東川原地区</td><td class="num">439</td><td class="num">29</td><td class="num">6.6%</td></tr>
 </tbody>
 </table>
-<p class="note">全35地区の詳細は CSV（theme2_district_aging_202609.csv）を参照。</p>
+<p class="note">上表は全35地区のうち、高齢化率の上位・下位の地区の抜粋です。</p>
 
 <h3>5.4 人口密度（2020年国勢調査・町丁字330件）</h3>
 <p class="fact">FACT: 面積データから人口密度を算出可能となった。仮想街いわた全体 約1,020人/km2。地区間で差が大きい。</p>
@@ -365,8 +365,7 @@ th,td{padding:4px 6px}
 </ul>
 </div>
 
-<p><a href="../index.html">分析サイト入口へ</a> ／ <a href="https://kaopuuu-hash.github.io/iwata-open-data-themes/themes/theme02/index.html">テーマ2レポート（テーマ別サイト）</a></p>
-
 </div>
 </body>
 </html>
+", "path": "C:/Users/user/Desktop/opencode-test/dist/theme02_deep_dive_release/index.html"}
