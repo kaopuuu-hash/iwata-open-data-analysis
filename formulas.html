@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>分析数式リスト（テーマ01〜15）</title>
+<style>
+:root{
+--bg:#faf8f4; --card:#ffffff; --ink:#2b2b2b; --muted:#6b6b6b;
+--accent:#1f6feb; --accent-soft:#e8f0fe; --line:#e5e0d8; --radius:12px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+line-height:1.7}
+header.top{background:#1c2b39;color:#fff;padding:20px 16px}
+header.top h1{margin:0 0 4px;font-size:1.25rem}
+header.top p{margin:0;color:#c8d3de;font-size:.85rem}
+main{max-width:960px;margin:0 auto;padding:0 16px 48px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+padding:16px;margin:14px 0;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.card h2{margin:0 0 10px;font-size:1.05rem}
+.card p{margin:6px 0}
+.card ul,.card ol{margin:6px 0;padding-left:1.4em}
+.card li{margin:4px 0}
+.notice{background:#fff8e6;border:1px solid #e8d9a8;border-radius:var(--radius);
+padding:12px 16px;font-size:.85rem;margin:14px 0}
+.tblwrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{background:var(--accent-soft)}
+td.no,th.no{width:3em;text-align:right}
+.fx{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.88em;
+white-space:nowrap}
+.sym{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9em;white-space:nowrap}
+.backlink{margin:18px 0;font-size:.9rem}
+.backlink a{color:var(--accent);text-decoration:none}
+footer{border-top:1px solid var(--line);padding:16px;text-align:center;
+font-size:.78rem;color:var(--muted)}
+</style>
+</head>
+<body>
+<header class="top">
+<h1>分析数式リスト（テーマ01〜15）</h1>
+</header>
+<main>
+<div class="notice">
+<p>この資料は分析モデルの候補一覧です。数式が成立することと、現在のデータで実際に計算できることは分けています。実装時には元データの列・単位・年度・地域粒度に合わせて数式を確定してください。</p>
+</div>
+<section class="card">
+<h2>01. 公共施設 × 人口</h2>
+<div class="tblwrap"><table>
+<tr><th class="no">No.</th><th>分析指標</th><th>数式</th></tr>
+<tr><td class="no">1</td><td>施設密度</td><td class="fx">(D_f=N_f/A)</td></tr>
+<tr><td class="no">2</td><td>人口当たり施設数</td><td class="fx">(R_f=N_f/P`\times1000`{=tex})</td></tr>
+<tr><td class="no">3</td><td>施設充足率</td><td class="fx">(S=N\_{`\text{実際}`{=tex}}/N\_{`\text{必要}`{=tex}})</td></tr>
+<tr><td class="no">4</td><td>施設配置偏差</td><td class="fx">(D_i-`\bar `{=tex}D)</td></tr>
+<tr><td class="no">5</td><td>施設需要推計</td><td class="fx">(F_t=P_t`\times `{=tex}r_f)</td></tr>
+</table></div>
+</section>
+<section class="card">
+<h2>02. 人口構造</h2>
+<div class="tblwrap"><table>
+<tr><th class="no">No.</th><th>分析指標</th><th>数式</th></tr>
+<tr><td class="no">1</td><td>年齢構成比</td><td class="fx">(R_i=P_i/P`\times100`{=tex})</td></tr>
+<tr><td class="no">2</td><td>高齢化率</td><td class="fx">(P\_{65+}/P`\times100`{=tex})</td></tr>
+<tr><td class="no">3</td><td>年少人口比率</td><td class="fx">(P\_{0-14}/P`\times100`{=tex})</td></tr>
+<tr><td class="no">4</td><td>生産年齢人口比率</td><td class="fx">(P\_{15-64}/P`\times100`{=tex})</td></tr>
+<tr><td class="no">5</td><td>従属人口指数</td><td class="fx">((P\_{0-14}+P\_{65+})/P\_{15-64}`\times100`{=tex})</td></tr>
+<tr><td class="no">6</td><td>男女比</td><td class="fx">(P_m/P_f`\times100`{=tex})</td></tr>
+<tr><td class="no">7</td><td>人口増減率</td><td class="fx">((P_t-P_0)/P_0`\times100`{=tex})</td></tr>
+</table></div>
+</section>
+<section class="card">
+<h2>03. 製造業・産業構造</h2>
+<div class="tblwrap"><table>
+<tr><th class="no">No.</th><th>分析指標</th><th>数式</th></tr>
+<tr><td class="no">1</td><td>事業所増減数</td><td class="fx">(N_t-N_0)</td></tr>
+<tr><td class="no">2</td><td>事業所増減率</td><td class="fx">((N_t-N_0)/N_0`\times100`{=tex})</td></tr>
+<tr><td class="no">3</td><td>年平均増減率</td><td class="fx">((N_t/N_0)\^{1/n}-1)</td></tr>
+<tr><td class="no">4</td><td>産業構成比</td><td class="fx">(N_i/N\_{`\text{total}`{=tex}}`\times100`{=tex})</td></tr>
+<tr><td class="no">5</td><td>産業特化係数</td><td class="fx">((E_i/E)/(E\_{ri}/E_r))</td></tr>
+<tr><td class="no">6</td><td>事業所密度</td><td class="fx">(N_i/A)</td></tr>
+</table></div>
+</section>
+<section class="card">
+<h2>04. 子育て環境</h2>
+<div class="tblwrap"><table>
+<tr><th class="no">No.</th><th>分析指標</th><th>数式</th></tr>
+<tr><td class="no">1</td><td>施設当たり児童数</td><td class="fx">(P_c/N_c)</td></tr>
+<tr><td class="no">2</td><td>人口当たり施設数</td><td class="fx">(N_c/P_c`\times1000`{=tex})</td></tr>
+<tr><td class="no">3</td><td>施設密度</td><td class="fx">(N_c/A)</td></tr>
+<tr><td class="no">4</td><td>施設充足率</td><td class="fx">(N_c/N\_{`\text{必要}`{=tex}})</td></tr>
+<tr><td class="no">5</td><td>施設配置偏差</td><td class="fx">(D_i-`\bar `{=tex}D)</td></tr>
+</table></div>
+</section>
+<section class="card">
+<h2>05. 文化・観光</h2>
+<div class="tblwrap"><table>
+<tr><th class="no">No.</th><th>分析指標</th><th>数式</th></tr>
+<tr><td class="no">1</td><td>人口当たり図書館数</td><td class="fx">(N_l/P`\times10000`{=tex})</td></tr>
+<tr><td class="no">2</td><td>施設密度</td><td class="fx">(N_l/A)</td></tr>
+<tr><td class="no">3</td><td>施設構成比</td><td class="fx">(N_i/N\_{`\text{total}`{=tex}}`\times100`{=tex})</td></tr>
+<tr><td class="no">4</td><td>施設当たり人口</td><td class="fx">(P/N_l)</td></tr>
+<tr><td class="no">5</td><td>施設配置偏差</td><td class="fx">(D_i-`\bar `{=tex}D)</td></tr>
+</table></div>
+</section>
+<section class="card">
+<h2>06. 医療・福祉施設</h2>
+<div class="tblwrap"><table>
+<tr><th class="no">No.</th><th>分析指標</th><th>数式</th></tr>
+<tr><td class="no">1</td><td>医療施設合計</td><td class="fx">(N_h+N_c)</td></tr>
+<tr><td class="no">2</td><td>人口当たり病院数</td><td class="fx">(N_h/P`\times10000`{=tex})</td></tr>
+<tr><td class="no">3</td><td>人口当たり診療所数</td><td class="fx">(N_c/P`\times10000`{=tex})</td></tr>
+<tr><td class="no">4</td><td>医療施設構成比</td><td class="fx">(N_i/N\_{`\text{total}`{=tex}}`\times100`{=tex})</td></tr>
+<tr><td class="no">5</td><td>高齢者当たり施設数</td><td class="fx">(N_f/P\_{65+}`\times1000`{=tex})</td></tr>
+<tr><td class="no">6</td><td>医療施設密度</td><td class="fx">(N_f/A)</td></tr>
+</table></div>
+</section>
+<section class="card">
+<h2>07. 商業・買い物環境</h2>
+<div class="tblwrap"><table>
+<tr><th class="no">No.</th><th>分析指標</th><th>数式</th></tr>
+<tr><td class="no">1</td><td>人口当たり商業施設数</td><td class="fx">(N_s/P`\times1000`{=tex})</td></tr>
+<tr><td class="no">2</td><td>商業施設密度</td><td class="fx">(N_s/A)</td></tr>
+<tr><td class="no">3</td><td>地域別店舗構成比</td><td class="fx">(N_i/N\_{`\text{total}`{=tex}}`\times100`{=tex})</td></tr>
+<tr><td class="no">4</td><td>店舗当たり人口</td><td class="fx">(P/N_s)</td></tr>
+<tr><td class="no">5</td><td>店舗分布偏在度</td><td class="fx">(CV=`\sigma`{=tex}/`\mu`{=tex})</td></tr>
+</table></div>
+</section>
+<section class="card">
+<h2>08. 公共交通</h2>
+<div class="tblwrap"><table>
+<tr><th class="no">No.</th><th>分析指標</th><th>数式</th></tr>
+<tr><td class="no">1</td><td>鉄道利用者増減数</td><td class="fx">(N_t-N_0)</td></tr>
+<tr><td class="no">2</td><td>利用者増減率</td><td class="fx">((N_t-N_0)/N_0`\times100`{=tex})</td></tr>
+<tr><td class="no">3</td><td>人口当たり利用者数</td><td class="fx">(N_r/P`\times1000`{=tex})</td></tr>
+<tr><td class="no">4</td><td>利用者構成比</td><td class="fx">(N_i/N\_{`\text{total}`{=tex}}`\times100`{=tex})</td></tr>
+<tr><td class="no">5</td><td>年平均利用者増減率</td><td class="fx">((N_t/N_0)\^{1/n}-1)</td></tr>
+</table></div>
+</section>
+<section class="card">
+<h2>09. 生活空白地帯</h2>
+<div class="tblwrap"><table>
+<tr><th class="no">No.</th><th>分析指標</th><th>数式</th></tr>
+<tr><td class="no">1</td><td>店舗密度</td><td class="fx">(N_s/A)</td></tr>
+<tr><td class="no">2</td><td>人口当たり店舗数</td><td class="fx">(N_s/P`\times1000`{=tex})</td></tr>
+<tr><td class="no">3</td><td>店舗アクセス距離</td><td class="fx">(d_i=`\min`{=tex}\_j d(i,j))</td></tr>
+<tr><td class="no">4</td><td>アクセス圏人口率</td><td class="fx">(P\_{`\text{圏内}`{=tex}}/P`\times100`{=tex})</td></tr>
+<tr><td class="no">5</td><td>空白地人口率</td><td class="fx">(P\_{`\text{空白地}`{=tex}}/P`\times100`{=tex})</td></tr>
+</table></div>
+</section>
+<section class="card">
+<h2>10. 公園・緑地</h2>
+<div class="tblwrap"><table>
+<tr><th class="no">No.</th><th>分析指標</th><th>数式</th></tr>
+<tr><td class="no">1</td><td>人口当たり公園数</td><td class="fx">(N_p/P`\times10000`{=tex})</td></tr>
+<tr><td class="no">2</td><td>公園密度</td><td class="fx">(N_p/A)</td></tr>
+<tr><td class="no">3</td><td>1人当たり公園面積</td><td class="fx">(A_p/P)</td></tr>
+<tr><td class="no">4</td><td>公園アクセス距離</td><td class="fx">(d_i=`\min`{=tex}\_j d(i,j))</td></tr>
+<tr><td class="no">5</td><td>公園アクセス率</td><td class="fx">(P\_{`\text{到達圏内}`{=tex}}/P`\times100`{=tex})</td></tr>
+<tr><td class="no">6</td><td>緑地面積比率</td><td class="fx">(A_g/A`\times100`{=tex})</td></tr>
+</table></div>
+</section>
+<section class="card">
+<h2>11. 災害リスク</h2>
+<div class="tblwrap"><table>
+<tr><th class="no">No.</th><th>分析指標</th><th>数式</th></tr>
+<tr><td class="no">1</td><td>被災住宅率</td><td class="fx">(H_d/H`\times100`{=tex})</td></tr>
+<tr><td class="no">2</td><td>浸水住宅率</td><td class="fx">(H_f/H`\times100`{=tex})</td></tr>
+<tr><td class="no">3</td><td>被害額人口当たり</td><td class="fx">(L/P)</td></tr>
+<tr><td class="no">4</td><td>被害額住宅当たり</td><td class="fx">(L/H)</td></tr>
+<tr><td class="no">5</td><td>災害リスク人口率</td><td class="fx">(P\_{`\text{危険区域}`{=tex}}/P`\times100`{=tex})</td></tr>
+<tr><td class="no">6</td><td>被害額構成比</td><td class="fx">(L_i/L\_{`\text{total}`{=tex}}`\times100`{=tex})</td></tr>
+</table></div>
+</section>
+<section class="card">
+<h2>12. 避難・孤立</h2>
+<div class="tblwrap"><table>
+<tr><th class="no">No.</th><th>分析指標</th><th>数式</th></tr>
+<tr><td class="no">1</td><td>高齢者単独世帯率</td><td class="fx">(H\_{65+}/H\_{`\text{total}`{=tex}}`\times100`{=tex})</td></tr>
+<tr><td class="no">2</td><td>高齢者単独世帯構成比</td><td class="fx">(H\_{65+}/H\_{`\text{single}`{=tex}}`\times100`{=tex})</td></tr>
+<tr><td class="no">3</td><td>世帯当たり避難施設数</td><td class="fx">(N_e/H)</td></tr>
+<tr><td class="no">4</td><td>避難施設密度</td><td class="fx">(N_e/A)</td></tr>
+<tr><td class="no">5</td><td>避難施設アクセス距離</td><td class="fx">(d_i=`\min`{=tex}\_j d(i,j))</td></tr>
+<tr><td class="no">6</td><td>避難圏人口率</td><td class="fx">(P\_{`\text{避難圏内}`{=tex}}/P`\times100`{=tex})</td></tr>
+</table></div>
+</section>
+<section class="card">
+<h2>13. 農地・住宅・土地利用</h2>
+<div class="tblwrap"><table>
+<tr><th class="no">No.</th><th>分析指標</th><th>数式</th></tr>
+<tr><td class="no">1</td><td>住宅密度</td><td class="fx">(H/A)</td></tr>
+<tr><td class="no">2</td><td>人口当たり住宅数</td><td class="fx">(H/P`\times1000`{=tex})</td></tr>
+<tr><td class="no">3</td><td>土地利用構成比</td><td class="fx">(A_i/A\_{`\text{total}`{=tex}}`\times100`{=tex})</td></tr>
+<tr><td class="no">4</td><td>住宅密度変化率</td><td class="fx">((D_t-D_0)/D_0`\times100`{=tex})</td></tr>
+<tr><td class="no">5</td><td>土地利用変化量</td><td class="fx">(A\_{i,t}-A\_{i,0})</td></tr>
+<tr><td class="no">6</td><td>空き家率</td><td class="fx">(H\_{`\text{vacant}`{=tex}}/H\_{`\text{total}`{=tex}}`\times100`{=tex})</td></tr>
+</table></div>
+</section>
+<section class="card">
+<h2>14. 公共施設の将来負担</h2>
+<div class="tblwrap"><table>
+<tr><th class="no">No.</th><th>分析指標</th><th>数式</th></tr>
+<tr><td class="no">1</td><td>人口当たり施設数</td><td class="fx">(N_f/P`\times1000`{=tex})</td></tr>
+<tr><td class="no">2</td><td>施設需要推計</td><td class="fx">(F_t=P_t`\times `{=tex}r_f)</td></tr>
+<tr><td class="no">3</td><td>施設需要増減率</td><td class="fx">((F_t-F_0)/F_0`\times100`{=tex})</td></tr>
+<tr><td class="no">4</td><td>施設維持費人口当たり</td><td class="fx">(C/P)</td></tr>
+<tr><td class="no">5</td><td>施設更新費推計</td><td class="fx">(C_r=`\sum`{=tex}\_i C_i)</td></tr>
+<tr><td class="no">6</td><td>将来負担指数</td><td class="fx">(C_t/P_t)</td></tr>
+</table></div>
+</section>
+<section class="card">
+<h2>15. 緑地・暑熱</h2>
+<div class="tblwrap"><table>
+<tr><th class="no">No.</th><th>分析指標</th><th>数式</th></tr>
+<tr><td class="no">1</td><td>森林面積合計</td><td class="fx">(A_f=`\sum`{=tex}\_i A_i)</td></tr>
+<tr><td class="no">2</td><td>森林面積構成比</td><td class="fx">(A_f/A_t`\times100`{=tex})</td></tr>
+<tr><td class="no">3</td><td>森林面積変化量</td><td class="fx">(A_t-A_0)</td></tr>
+<tr><td class="no">4</td><td>森林面積変化率</td><td class="fx">((A_t-A_0)/A_0`\times100`{=tex})</td></tr>
+<tr><td class="no">5</td><td>年平均変化率</td><td class="fx">((A_t/A_0)\^{1/n}-1)</td></tr>
+<tr><td class="no">6</td><td>人口当たり森林面積</td><td class="fx">(A_f/P)</td></tr>
+<tr><td class="no">7</td><td>緑地面積密度</td><td class="fx">(A_g/A_t)</td></tr>
+<tr><td class="no">8</td><td>緑地分布偏在度</td><td class="fx">(CV=`\sigma`{=tex}/`\mu`{=tex})</td></tr>
+<tr><td class="no">9</td><td>地表面温度偏差</td><td class="fx">(LST_i-LST\_{`\text{基準}`{=tex}})</td></tr>
+<tr><td class="no">10</td><td>緑地と地表面温度の相関</td><td class="fx">(r=`\operatorname{Corr}`{=tex}(A_g,LST))</td></tr>
+</table></div>
+</section>
+<section class="card">
+<h2>計算可能性・追加データに関する注意</h2>
+<p>数式の候補と、現在のデータで実際に計算できる指標は別です。</p>
+<div class="tblwrap"><table>
+<tr><th>データ状況</th><th>テーマ</th></tr>
+<tr><td class="sym">データ不足・未取得</td><td>01・02・11</td></tr>
+<tr><td class="sym">取得済みだが空間情報等の追加確認が必要</td><td>04・05・06・07・09・10・12・13・14</td></tr>
+<tr><td class="sym">時系列比較が可能な指標あり</td><td>03・08・15</td></tr>
+</table></div>
+<p>特に以下は追加データがない限り計算できません。</p>
+<ul><li>施設の実際のアクセス距離</li><li>人口の空間分布</li><li>災害リスク区域内の人口</li><li>地表面温度と緑地の相関</li><li>将来の施設維持費</li></ul>
+<p>CVは地域別データが複数ある場合に使用します。</p>
+</section>
+<section class="card">
+<h2>記号一覧</h2>
+<div class="tblwrap"><table>
+<tr><th>記号</th><th>意味</th></tr>
+<tr><td class="sym">(P)</td><td>人口</td></tr>
+<tr><td class="sym">(P_i)</td><td>属性・地域区分別人口</td></tr>
+<tr><td class="sym">(P_t)</td><td>時点tの人口</td></tr>
+<tr><td class="sym">(P\_{65+})</td><td>65歳以上人口</td></tr>
+<tr><td class="sym">(P\_{0-14})</td><td>0〜14歳人口</td></tr>
+<tr><td class="sym">(P\_{15-64})</td><td>15〜64歳人口</td></tr>
+<tr><td class="sym">(N)</td><td>施設数・事業所数等</td></tr>
+<tr><td class="sym">(A)</td><td>面積</td></tr>
+<tr><td class="sym">(A_f)</td><td>森林面積</td></tr>
+<tr><td class="sym">(A_g)</td><td>緑地面積</td></tr>
+<tr><td class="sym">(H)</td><td>住宅数・世帯数（指標ごとに定義）</td></tr>
+<tr><td class="sym">(L)</td><td>被害額</td></tr>
+<tr><td class="sym">(C)</td><td>費用</td></tr>
+<tr><td class="sym">(D)</td><td>密度</td></tr>
+<tr><td class="sym">(r)</td><td>比率・相関係数（文脈により区別）</td></tr>
+<tr><td class="sym">(CV)</td><td>変動係数</td></tr>
+<tr><td class="sym">(`\sigma`{=tex})</td><td>標準偏差</td></tr>
+<tr><td class="sym">(`\mu`{=tex})</td><td>平均</td></tr>
+<tr><td class="sym">(LST)</td><td>地表面温度</td></tr>
+<tr><td class="sym">(t)</td><td>時点</td></tr>
+<tr><td class="sym">(n)</td><td>経過年数</td></tr>
+</table></div>
+</section>
+<section class="card">
+<h2>実装時の共通チェック</h2>
+<ol><li>分母が0または欠損の場合は計算しない。</li><li>比率の単位（%、件/千人、件/万人等）を明示する。</li><li>面積の単位（ha、km²、m²）を統一する。</li><li>比較する年度・地域区分・母集団を一致させる。</li><li>元データに存在しない値を推測で補完しない。</li><li>算出値には使用データ・出典・計算条件を記録する。</li><li>相関は因果関係を意味しない。</li></ol>
+</section>
+<p class="backlink"><a href="https://kaopuuu-hash.github.io/secret-base/data.html">← ホームページのデータ置き場へ</a></p>
+</main>
+</body>
+</html>
